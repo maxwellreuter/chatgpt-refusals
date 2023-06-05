@@ -31,7 +31,7 @@ Calculating n-gram coefficients for dataset: Hand-Labeled...
 [Fig. 4]
 Calculating n-gram coefficients for dataset: Bootstrapped Quora Insincere Questions...
 
-Finished - n-gram coefficients were written to the "results" folder.
+Finished; n-gram coefficients were written to the "results" folder.
 ```
 
 ## Reproduce BERT classification results
@@ -42,11 +42,11 @@ This process should take about 1 minute on CPU:
 > python bert_results.py
 
 Classifying responses in data/all_hand_labeled.json...
-100%|██████████████████████████████████████████████████████████████| 33/33 [00:50<00:00,  1.53s/it]
+100%|███████████████████████████████████████████| 33/33 [00:48<00:00,  1.46s/it]
 Accuracy: 92.31%
 
 Classifying prompts in data/quora_insincere_hand_labeled.json...
-100%|██████████████████████████████████████████████████████████████| 19/19 [00:04<00:00,  4.23it/s]
+100%|█████████████████████████████████████████| 127/127 [00:31<00:00,  4.01it/s]
 Accuracy: 75.52%
 ```
 

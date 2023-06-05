@@ -111,8 +111,8 @@ if __name__ == '__main__':
     fit_model(rf_responses_model,   'response', 'quora_insincere_hand_labeled')
 
     # For the following 2 fits, we use the quora_insincere_large_bootstrap dataset to train the model (using a 70/15/15
-    # train/validation/test split). However, we test the models on the entirety of the
-    # quora_insincere_hand_labeled dataset, not the test set from the quora_insincere_large_bootstrap dataset.
+    # train/validation/test split). However, we test the models on the entirety of  quora_insincere_hand_labeled
+    # dataset, not the test set from the quora_insincere_large_bootstrap dataset.
     fit_model(lr_prompts_model,     'prompt',   'quora_insincere_large_bootstrap')
     if args.fit_random_forest_on_quora_10k:
         fit_model(rf_prompts_model, 'prompt',   'quora_insincere_large_bootstrap')
