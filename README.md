@@ -1,5 +1,5 @@
 # I'm Afraid I Can't Do That - Predicting Prompt Refusal in Black-Box Generative Language Models
-This repository contains datasets and code used to obtain the results presented in the paper (forthcoming).
+This repository contains datasets and code used to obtain the results presented in [the paper](https://arxiv.org/pdf/2306.03423.pdf).
 
 To run the code, you will need to install the appropriate dependencies using [`pip`](https://packaging.python.org/en/latest/tutorials/installing-packages/#installing-from-pypi), [Conda](https://docs.conda.io/en/latest/), or similar.
 
