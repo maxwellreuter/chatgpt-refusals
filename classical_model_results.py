@@ -36,7 +36,7 @@ def plot_ngram_coefficients(dataset, feature_names, coefficients, text_type, n=1
 
 def print_model_accuracy(y_test, y_pred, text_type, model):
     accuracy = accuracy_score(y_test, y_pred)
-    print(f'Achieved {accuracy*100:.2f}% test accuracy in {text_type} classification using {type(model).__name__}.')
+    print(f'Achieved {accuracy*100:.2f}% test accuracy in {text_type} classification with {type(model).__name__}.')
 
 def fit_model(model, text_type, dataset):
     # Load, preprocess, and split data
@@ -110,9 +110,9 @@ if __name__ == '__main__':
     fit_model(lr_responses_model,   'response', 'quora_insincere_hand_labeled')
     fit_model(rf_responses_model,   'response', 'quora_insincere_hand_labeled')
 
-    # For the following 2 fits, we use the quora_insincere_large_bootstrap dataset to train the model (using a 70/15/15
-    # train/validation/test split). However, we test the models on the entirety of  quora_insincere_hand_labeled
-    # dataset, not the test set from the quora_insincere_large_bootstrap dataset.
+    # For the following 2 fits, we use the quora_insincere_large_bootstrap dataset to train the model (using a
+    # 70/15/15 train/validation/test split). However, we test the models on the entirety of the
+    # quora_insincere_hand_labeled dataset, not the test set from the quora_insincere_large_bootstrap dataset.
     fit_model(lr_prompts_model,     'prompt',   'quora_insincere_large_bootstrap')
     if args.fit_random_forest_on_quora_10k:
         fit_model(rf_prompts_model, 'prompt',   'quora_insincere_large_bootstrap')
