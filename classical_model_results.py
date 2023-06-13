@@ -38,7 +38,7 @@ def print_model_accuracy(y_test, y_pred, text_type, model):
     accuracy = accuracy_score(y_test, y_pred)
     print(f'Achieved {accuracy*100:.2f}% test accuracy in {text_type} classification with {type(model).__name__}.')
 
-def fit_model(model, text_type, dataset):
+def fit_model(model, text_type, dataset, print_accuracy=False):
     # Load, preprocess, and split data
     X, y = data_processing.preprocess_data(f'data/{dataset}.json', text_type)
     X_train, _, X_test, y_train, _, y_test = data_processing.split_data(X, y)
@@ -54,16 +54,15 @@ def fit_model(model, text_type, dataset):
     model.fit(X_train_tfidf, y_train)
 
     # Compute accuracy on the test set if called for
-    if dataset == 'quora_insincere_hand_labeled' and text_type == 'response':
-        y_pred = model.predict(X_test_tfidf)
-        print_model_accuracy(y_test, y_pred, text_type, model)
-    elif dataset == 'quora_insincere_large_bootstrap' and text_type == 'prompt':
+    # If trained on quora_insincere_large_bootstrap, we use quora_insincere_hand_labeled as the test set
+    if dataset == 'quora_insincere_large_bootstrap':
         X_test, y_test = data_processing.preprocess_data(f'data/quora_insincere_hand_labeled.json', text_type)
         X_test_tfidf = vectorizer.transform(X_test)
-        y_pred = model.predict(X_test_tfidf)
+    y_pred = model.predict(X_test_tfidf)
+    if print_accuracy:
         print_model_accuracy(y_test, y_pred, text_type, model)
 
-    if isinstance(model, LogisticRegression) and dataset != 'quora_insincere_hand_labeled':
+    if isinstance(model, LogisticRegression):
         # Plot the n-gram coefficients for logistic regression
         plot_ngram_coefficients(dataset, vectorizer.get_feature_names_out(), model.coef_[0], text_type)
 
@@ -105,17 +104,13 @@ if __name__ == '__main__':
     )
 
     # Get results for Table 4's classical model accuracies
-    print('[Table 4 (classical models)]')
-    print('Calculating classical model accuracies for dataset: Quora Insincere Questions...')
-    fit_model(lr_responses_model,   'response', 'quora_insincere_hand_labeled')
-    fit_model(rf_responses_model,   'response', 'quora_insincere_hand_labeled')
-
-    # For the following 2 fits, we use the quora_insincere_large_bootstrap dataset to train the model (using a
-    # 70/15/15 train/validation/test split). However, we test the models on the entirety of the
-    # quora_insincere_hand_labeled dataset, not the test set from the quora_insincere_large_bootstrap dataset.
-    fit_model(lr_prompts_model,     'prompt',   'quora_insincere_large_bootstrap')
+    print('[Table 4]')
+    print('Calculating classical model accuracies for dataset: Hand-Labeled...')
+    fit_model(lr_responses_model,   'response', 'all_hand_labeled',                 print_accuracy=True)
+    fit_model(rf_responses_model,   'response', 'all_hand_labeled',                 print_accuracy=True)
+    fit_model(lr_prompts_model,     'prompt',   'quora_insincere_large_bootstrap',  print_accuracy=True)
     if args.fit_random_forest_on_quora_10k:
-        fit_model(rf_prompts_model, 'prompt',   'quora_insincere_large_bootstrap')
+        fit_model(rf_prompts_model, 'prompt',   'quora_insincere_large_bootstrap',  print_accuracy=True)
     else:
         print('Skipping random forest prompt classifier fitting.')
     print()
@@ -123,7 +118,7 @@ if __name__ == '__main__':
     # Get results for Fig. 3's n-gram coefficients
     print('[Fig. 3]')
     print('Calculating n-gram coefficients for dataset: Hand-Labeled...')
-    fit_model(lr_responses_model,   'response', 'all_hand_labeled')
+    #fit_model(lr_responses_model,   'response', 'all_hand_labeled')  # this was already done above
     fit_model(lr_prompts_model,     'prompt',   'all_hand_labeled')
     print()
 
