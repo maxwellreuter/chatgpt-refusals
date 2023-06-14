@@ -1,5 +1,5 @@
 # I'm Afraid I Can't Do That - Predicting Prompt Refusal in Black-Box Generative Language Models
-This repository contains datasets and code used to obtain the results presented in [the paper](https://arxiv.org/pdf/2306.03423.pdf).
+This repository contains datasets and code used to obtain the results presented in [our paper](https://arxiv.org/pdf/2306.03423.pdf).
 
 To run the code, you will need to install the appropriate dependencies using [`pip`](https://packaging.python.org/en/latest/tutorials/installing-packages/#installing-from-pypi), [Conda](https://docs.conda.io/en/latest/), or similar.
 
@@ -41,11 +41,11 @@ This process should take about 1 minute on CPU:
 > python bert_results.py
 
 Classifying responses in data/all_hand_labeled.json...
-100%|███████████████████████████████████████████| 33/33 [00:48<00:00,  1.46s/it]
+100%|███████████████████████████████████████████| 33/33 [01:10<00:00,  2.13s/it]
 Accuracy: 96.48%
 
 Classifying prompts in data/quora_insincere_hand_labeled.json...
-100%|█████████████████████████████████████████| 127/127 [00:31<00:00,  4.01it/s]
+100%|█████████████████████████████████████████| 124/124 [00:41<00:00,  3.00it/s]
 Accuracy: 75.94%
 ```
 
