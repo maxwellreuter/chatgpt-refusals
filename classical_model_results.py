@@ -103,8 +103,8 @@ if __name__ == '__main__':
         random_state=0
     )
 
-    # Get results for Table 4's classical model accuracies
-    print('[Table 4]')
+    # Get results for Table 5's classical model accuracies
+    print('[Table 5]')
     print('Calculating classical model accuracies for dataset: Hand-Labeled...')
     fit_model(lr_responses_model,   'response', 'all_hand_labeled',                 print_accuracy=True)
     fit_model(rf_responses_model,   'response', 'all_hand_labeled',                 print_accuracy=True)
@@ -115,15 +115,15 @@ if __name__ == '__main__':
         print('Skipping random forest prompt classifier fitting.')
     print()
 
-    # Get results for Fig. 3's n-gram coefficients
-    print('[Fig. 3]')
+    # Get results for Fig. 2's n-gram coefficients
+    print('[Fig. 2]')
     print('Calculating n-gram coefficients for dataset: Hand-Labeled...')
     #fit_model(lr_responses_model,   'response', 'all_hand_labeled')  # this was already done above
     fit_model(lr_prompts_model,     'prompt',   'all_hand_labeled')
     print()
 
-    # Get results for Fig. 4's n-gram coefficients
-    print('[Fig. 4]')
+    # Get results for Fig. 3's n-gram coefficients
+    print('[Fig. 3]')
     print('Calculating n-gram coefficients for dataset: Bootstrapped Quora Insincere Questions...')
     fit_model(lr_responses_model,   'response', 'quora_insincere_large_bootstrap')
     #fit_model(lr_prompts_model,     'prompt',   'quora_insincere_large_bootstrap')  # this was already done above

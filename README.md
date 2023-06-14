@@ -18,17 +18,17 @@ Omit the `--fit_random_forest_on_quora_10k` flag to skip fitting a random forest
 ```sh
 > python classical_model_results.py --fit_random_forest_on_quora_10k
 
-[Table 4]
+[Table 5]
 Calculating classical model accuracies for dataset: Hand-Labeled...
 Achieved 90.62% test accuracy in response classification with LogisticRegression.
 Achieved 86.72% test accuracy in response classification with RandomForestClassifier.
 Achieved 73.91% test accuracy in prompt classification with LogisticRegression.
 Achieved 72.18% test accuracy in prompt classification with RandomForestClassifier.
 
-[Fig. 3]
+[Fig. 2]
 Calculating n-gram coefficients for dataset: Hand-Labeled...
 
-[Fig. 4]
+[Fig. 3]
 Calculating n-gram coefficients for dataset: Bootstrapped Quora Insincere Questions...
 
 Finished; n-gram coefficients were written to the "results" folder.
@@ -43,11 +43,11 @@ This process should take about 1 minute on CPU:
 
 Classifying responses in data/all_hand_labeled.json...
 100%|███████████████████████████████████████████| 33/33 [00:48<00:00,  1.46s/it]
-Accuracy: 92.31%
+Accuracy: 96.48%
 
 Classifying prompts in data/quora_insincere_hand_labeled.json...
 100%|█████████████████████████████████████████| 127/127 [00:31<00:00,  4.01it/s]
-Accuracy: 75.52%
+Accuracy: 75.94%
 ```
 
 ## Programmatically querying ChatGPT
