@@ -8,9 +8,8 @@ To run the code, you will need to install the appropriate dependencies using [`p
 |--------------------------|-----------------------|----------|
 | New York Post            | 21                    | `nyp.json` |
 | Political Figures        | 700                   | `political_figures.json` |
-| Quora Insincere Questions| 1,009                 | `quora_insincere_hand_labeled.json` |
-| Hand-Labeled             | 1,730                 | `all_hand_labeled.json` |
-| Unlabeled Quora Insincere Questions | 10,000 | `quora_insincere_large_unlabeled.json` |
+| Quora Insincere Questions| 985                 | `quora_insincere_hand_labeled.json` |
+| Hand-Labeled             | 1,709                 | `all_hand_labeled.json` |
 | Bootstrapped Quora Insincere Questions | 10,000 | `quora_insincere_large_bootstrap.json` |
 
 ## Reproduce word importance (n-gram coefficients) results
@@ -51,4 +50,4 @@ Accuracy: 75.94%
 ```
 
 ## Programmatically querying ChatGPT
-We queried ChatGPT via the [OpenAI Chat API](https://platform.openai.com/docs/guides/chat). To do this, we used the model code `gpt-3.5-turbo-0301` (see [here](https://platform.openai.com/docs/models/gpt-3-5) for details). The total cost for all of our queries was roughly $50.
+We queried ChatGPT via the [OpenAI Chat API](https://platform.openai.com/docs/guides/chat). To do this, we used the model code `gpt-3.5-turbo` (see [here](https://platform.openai.com/docs/models/gpt-3-5) for details). The total cost for all of our queries was roughly $50.
