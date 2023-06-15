@@ -13,7 +13,7 @@ To run the code, you will need to install the appropriate dependencies using [`p
 | Bootstrapped Quora Insincere Questions | 10,000 | `quora_insincere_large_bootstrap.json` |
 
 ## Reproduce word importance (n-gram coefficients) results
-Omit the `--fit_random_forest_on_quora_10k` flag to skip fitting a random forest prompt classifier on the Bootstrapped Quora Insincere Questions dataset. This fit may take a long time to complete due to the large number of estimators. The rest of the script takes about 20 seconds.
+Omit the `--fit_random_forest_on_quora_10k` flag to skip fitting a random forest prompt classifier on the Bootstrapped Quora Insincere Questions dataset. This fit takes a while due to the large number of estimators.
 ```sh
 > python classical_model_results.py --fit_random_forest_on_quora_10k
 
@@ -36,7 +36,7 @@ Finished; n-gram coefficients were written to the "results" folder.
 ## Reproduce BERT classification results
 Download `bert_assets.zip` from [this Google Drive](https://drive.google.com/drive/folders/1ak4IeIYy3XMRSWsRv3WzcVkGhlJlhhSC?usp=sharing) and unzip it in this directory (867MB uncompressed).
 
-This process should take about 1 minute on CPU:
+This workload is light enough to be done on the CPU:
 ```sh
 > python bert_results.py
 
