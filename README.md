@@ -13,7 +13,7 @@ To run the code, you will need to install the appropriate dependencies using [`p
 | Bootstrapped Quora Insincere Questions | 10,000 | `quora_insincere_large_bootstrap.json` |
 
 ## Reproduce word importance (n-gram coefficients) results
-Omit the `--fit_random_forest_on_quora_10k` flag to skip fitting a random forest prompt classifier on the Bootstrapped Quora Insincere Questions dataset. This fit takes a while due to the large number of estimators.
+Note: omit the `--fit_random_forest_on_quora_10k` flag to skip fitting a random forest prompt classifier on the Bootstrapped Quora Insincere Questions dataset. This fit takes a while due to the large number of estimators.
 ```sh
 > python classical_model_results.py --fit_random_forest_on_quora_10k
 
