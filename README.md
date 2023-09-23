@@ -9,7 +9,7 @@ To run the code, you will need to install the appropriate dependencies using [`p
 | New York Post            | 21                    | `nyp.json` |
 | Political Figures        | 700                   | `political_figures.json` |
 | Quora Insincere Questions| 985                 | `quora_insincere_hand_labeled.json` |
-| Hand-Labeled             | 1,706                 | `all_hand_labeled.json` |
+| All Hand-Labeled         | 1,706                 | `all_hand_labeled.json` |
 | Bootstrapped Quora Insincere Questions | 10,000 | `quora_insincere_large_bootstrap.json` |
 
 ## Reproduce word importance (n-gram coefficients) results
